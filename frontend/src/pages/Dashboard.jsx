@@ -136,6 +136,68 @@ const Dashboard = () => {
                     />
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
+
+                    <div className="bg-white rounded-xl shadow p-5">
+                        <h2 className="text-xl font-semibold mb-4">
+                            Orders Per Day
+                        </h2>
+
+                        <table className="w-full">
+                            <thead>
+                                <tr className="border-b">
+                                    <th className="text-left py-2">Date</th>
+                                    <th className="text-right py-2">Orders</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {stats.ordersPerDay.map((item) => (
+                                    <tr key={item._id} className="border-b">
+                                        <td className="py-2">
+                                            {item._id}
+                                        </td>
+
+                                        <td className="text-right py-2 font-semibold">
+                                            {item.orders}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="bg-white rounded-xl shadow p-5">
+                        <h2 className="text-xl font-semibold mb-4">
+                            Top Telecallers
+                        </h2>
+
+                        <table className="w-full">
+                            <thead>
+                                <tr className="border-b">
+                                    <th className="text-left py-2">Name</th>
+                                    <th className="text-right py-2">Orders</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {stats.topTelecallers.map((item) => (
+                                    <tr key={item._id} className="border-b">
+                                        <td className="py-2">
+                                            {item.name}
+                                        </td>
+
+                                        <td className="text-right py-2 font-semibold">
+                                            {item.orders}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
                 {/* Search & Filter */}
 
                 <div className="flex flex-wrap items-center gap-4 mt-10 mb-6">
