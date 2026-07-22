@@ -12,6 +12,8 @@ const Dashboard = () => {
     const [status, setStatus] = useState("");
 
     const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
+
     const [totalPages, setTotalPages] = useState(1);
 
     const getStats = async () => {
@@ -28,7 +30,7 @@ const Dashboard = () => {
             const res = await api.get("/orders", {
                 params: {
                     page: currentPage,
-                    limit: 10,
+                    limit,
                     search,
                     status,
                 },
@@ -47,7 +49,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getOrders(page);
-    }, [page, search, status]);
+    }, [page, limit, search, status]);
 
     const handleSearch = () => {
         setPage(1);
