@@ -46,11 +46,7 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            getOrders(page);
-        }, 500);
-
-        return () => clearTimeout(timer);
+        getOrders(page);
     }, [page, search, status]);
 
     const handleSearch = () => {
